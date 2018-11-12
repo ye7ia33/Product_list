@@ -10,8 +10,16 @@ import UIKit
 
 class Product_CustomeCell: UITableViewCell {
 
+    @IBOutlet weak var product_lbl_name: UILabel!
+    @IBOutlet weak var product_lbl_price: UILabel!
+    @IBOutlet weak var product_image: UIImageView!
+    
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
+        self.product_lbl_name.text = ""
+        self.product_lbl_price.text = "" 
         // Initialization code
     }
 

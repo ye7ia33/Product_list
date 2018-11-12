@@ -8,6 +8,12 @@
 
 import UIKit
 
-class Product: NSObject {
+struct Product {
+    var id = -1
+    var name = ""
+    var description = ""
+    var image_url = ""
+    var price = 0.0
+    
 
 }

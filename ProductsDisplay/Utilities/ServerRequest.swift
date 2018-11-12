@@ -6,7 +6,6 @@
 
 import Foundation
 import Alamofire
-import SwiftyJSON
 
 
 class Server : NSObject {
@@ -50,33 +49,6 @@ class Server : NSObject {
         })
     }
 
-    class func POSTRequest (request_url : String , params : [String : Any] = [String : Any]() ,
-                            Result:@escaping(_ result : Any)->() ) {
-  
-        print(request_url)
-
-        Alamofire.request(request_url ,
-                          method: httpMethod_POST ,
-                          parameters: params ,
-                          encoding: urlEncoding  ,
-                          headers: headers )
-            .validate(statusCode: 200..<300)
-            .responseJSON(completionHandler: {
-                response in
-                switch response.result
-                {
-                case .failure(let error) :
-                    print("> Error on Response JSON " , error)
-                    Result(NSNull())
-                    break
-                case .success(let value):
-                    Result(value)
-                    break
-                }
-            })
-    }
-    
-    
     
 }
 
